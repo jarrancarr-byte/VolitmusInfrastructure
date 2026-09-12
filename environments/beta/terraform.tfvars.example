@@ -1,0 +1,14 @@
+# Non-secret identifiers. Find these in the Cloudflare dashboard.
+cloudflare_account_id = "REPLACE_WITH_CLOUDFLARE_ACCOUNT_ID"
+cloudflare_zone_id    = "REPLACE_WITH_VOLTIMUSMAXIMUS_COM_ZONE_ID"
+
+# Defaults below are already correct for the planned Voltimus beta and only
+# need to be uncommented if you want to override them.
+# aws_region     = "us-east-1"
+# root_domain    = "voltimusmaximus.com"
+# auth_subdomain = "auth"
+
+# web_callback_urls    = ["https://voltimusmaximus.com/auth/callback"]
+# web_logout_urls      = ["https://voltimusmaximus.com/"]
+# mobile_callback_urls = ["voltimus://auth/callback"]
+# mobile_logout_urls   = ["voltimus://logout"]

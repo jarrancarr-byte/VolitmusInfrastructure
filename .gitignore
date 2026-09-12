@@ -1,0 +1,14 @@
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+backend.hcl
+terraform.tfvars
+*.auto.tfvars
+.env
+.DS_Store
+
+# Local secrets
+secrets.txt
