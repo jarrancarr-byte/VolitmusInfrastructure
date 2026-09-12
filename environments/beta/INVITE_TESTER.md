@@ -1,24 +1,44 @@
-# Temporary beta invite procedure
+# Beta applicant approval and Cognito invitation
 
-Until the Turnstile-backed enrollment endpoint is added, create testers administratively.
+The preferred beta flow now begins with a website application in DynamoDB. Do not automatically turn every public submission into a Cognito account.
 
-After `terraform apply`, obtain the pool ID:
+## Review applicants
 
-```bash
-terraform output -raw cognito_user_pool_id
+From the repository root:
+
+PowerShell:
+
+```powershell
+.\scripts\list-beta-applicants.ps1 -Status applied
 ```
 
-Invite a tester with AWS CLI:
+Bash:
 
 ```bash
-aws cognito-idp admin-create-user \
-  --region us-east-1 \
-  --user-pool-id "$(terraform output -raw cognito_user_pool_id)" \
-  --username 'tester@example.com' \
-  --user-attributes Name=email,Value='tester@example.com' Name=email_verified,Value=true \
-  --desired-delivery-mediums EMAIL
+./scripts/list-beta-applicants.sh applied
 ```
 
-Cognito sends the beta invitation with a temporary password. The user completes the required password change through Managed Login.
+## Invite an approved tester
+
+PowerShell:
+
+```powershell
+.\scripts\approve-beta-applicant.ps1 -Email tester@example.com
+```
+
+Bash:
+
+```bash
+./scripts/approve-beta-applicant.sh tester@example.com
+```
+
+The script:
+
+1. verifies that the email exists in the beta applicant table,
+2. creates the Cognito user if it does not already exist,
+3. lets Cognito send the beta invitation email,
+4. updates the application to `status = invited` with an invitation timestamp.
+
+Cognito sends a temporary password using the existing invite template. The tester completes the required password change through Managed Login.
 
 Do not add beta users as `aws_cognito_user` Terraform resources. User accounts are application data, not infrastructure state.

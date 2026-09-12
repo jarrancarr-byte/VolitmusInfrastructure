@@ -23,7 +23,20 @@ output "turnstile_sitekey" {
 }
 
 output "turnstile_secret" {
-  description = "Server-side only. Retrieve when wiring Siteverify; never ship this in web/mobile client code."
+  description = "Server-side only. Never ship this in web/mobile client code."
   value       = module.turnstile.secret
   sensitive   = true
+}
+
+output "beta_api_base_url" {
+  value = "https://${local.api_domain}"
+}
+
+output "beta_api_execute_endpoint" {
+  description = "AWS execute-api endpoint, useful for diagnostics if custom DNS is not ready yet."
+  value       = module.beta_api.execute_api_endpoint
+}
+
+output "beta_applicants_table_name" {
+  value = module.beta_api.applicants_table_name
 }

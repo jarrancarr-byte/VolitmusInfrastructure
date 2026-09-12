@@ -7,8 +7,31 @@ cloudflare_zone_id    = "REPLACE_WITH_VOLTIMUSMAXIMUS_COM_ZONE_ID"
 # aws_region     = "us-east-1"
 # root_domain    = "voltimusmaximus.com"
 # auth_subdomain = "auth"
+# api_subdomain  = "api"
 
 # web_callback_urls    = ["https://voltimusmaximus.com/auth/callback"]
 # web_logout_urls      = ["https://voltimusmaximus.com/"]
 # mobile_callback_urls = ["voltimus://auth/callback"]
 # mobile_logout_urls   = ["voltimus://logout"]
+
+# CORS includes the production site plus the current local dev server by default.
+# api_allowed_origins = [
+#   "https://voltimusmaximus.com",
+#   "https://www.voltimusmaximus.com",
+#   "http://localhost:4173",
+#   "http://127.0.0.1:4173"
+# ]
+
+# IMPORTANT: VoltimusWeb 0.3.10 does not yet submit a Turnstile token.
+# Leave this false until the website integration is added and tested.
+# beta_form_require_turnstile = false
+
+# Mobile remote config defaults. Override when the closed-test URL exists.
+# mobile_latest_version       = "0.33.79"
+# mobile_latest_version_code  = 198
+# mobile_minimum_version_code = 198
+# mobile_beta_enabled         = true
+# mobile_beta_message         = ""
+# mobile_play_store_url       = ""
+
+# log_retention_days = 30
