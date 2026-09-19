@@ -46,6 +46,13 @@ resource "aws_cognito_user_pool" "this" {
     Environment = var.environment
     Purpose     = "BetaIdentity"
   }
+
+  sign_in_policy {
+    allowed_first_auth_factors = [
+      "PASSWORD",
+      "EMAIL_OTP",
+    ]
+  }
 }
 
 locals {

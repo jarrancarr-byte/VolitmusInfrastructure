@@ -153,6 +153,8 @@ module "beta_api" {
   mobile_beta_message         = var.mobile_beta_message
   mobile_play_store_url       = var.mobile_play_store_url
   log_retention_days          = var.log_retention_days
+  cognito_user_pool_id        = module.cognito.user_pool_id
+  cognito_mobile_client_id    = module.cognito.mobile_client_id
 }
 
 # Keep the API hostname DNS-only. API Gateway terminates TLS using the

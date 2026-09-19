@@ -12,3 +12,8 @@ terraform.tfvars
 
 # Local secrets
 secrets.txt
+
+# Python/Lambda local artifacts
+__pycache__/
+*.pyc
+.pytest_cache/
